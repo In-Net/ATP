@@ -12,7 +12,6 @@
 # email: yongchao-he@outlook.com 
 ################################################################
 
-# RE_DIR="/home/yongchao/code"
 ################################################################
 myuser="yongchao"
 BE_DIR="$(cd .. "`dirname ${BASH_SOURCE[0]}`"; pwd)"
@@ -20,8 +19,8 @@ RE_DIR="/home/${myuser}/code"
 SSH_LIST=(
     # first_hop [second_hop] remote_dir
     # hop_format: username@ip port 
-    # "${myuser}@101.6.96.190 2332 ${RE_DIR}"
-    "${myuser}@101.6.96.190 2332 ${myuser}@10.0.0.1 22 ${RE_DIR}"
+    "yongchao@101.6.96.190 2332 yongchao@10.0.0.21 22 ${RE_DIR}"
+    "yongchao@101.6.96.190 2332 yongchao@10.0.0.1 22 ${RE_DIR}"
 )
 ################################################################
 

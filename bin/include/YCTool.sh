@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Para :
-#     ${1} : time (seconds)
-#
+##
+# Show Progress Bar; Note this will block the process
+# 
+# @para : ${1}
+#     time in seconds
+##
 progress_bar() {
     if [ ! ${1} ]; then
         echo_erro "usage: ${FUNCNAME} time"
