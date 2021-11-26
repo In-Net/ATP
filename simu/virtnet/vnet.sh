@@ -49,6 +49,16 @@ set_cmdbr() {
             echo_back "sudo apt-get install bridge-utils -y"
         fi 
     fi
+    
+    local _ret=`check_cmd ifconfig`
+    if [ ${_ret} == -1 ]; then
+        echo_back "sudo apt-get install net-tools -y > /dev/null"
+    fi
+
+    local _ret=`check_cmd ip`
+    if [ ${_ret} == -1 ]; then
+        echo_back "sudo apt-get install iproute2 -y > /dev/null"
+    fi
 }
 
 ns_create() {
