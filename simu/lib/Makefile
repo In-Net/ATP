@@ -2,7 +2,7 @@ LIB = atp
 CC  = g++
 
 # all source are stored in SRCS-y
-SRCS-y := atp_pktio.cc atp_reliable.cc
+SRCS-y := atp_pktio.cc atp_reliable.cc atp_msg.cc
 
 ifneq ($(shell uname),Linux)
 $(error This application can only operate in a linux environment)

@@ -1,14 +1,16 @@
-#ifndef _ATP_RELIABLE_
-#define _ATP_RELIABLE_
+#ifndef _ATP_RELIABLE_H_
+#define _ATP_RELIABLE_H_
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
 #include <stdint.h>
+#include <sys/uio.h>
 #include "atp_pktio.h"
 
-#define MAX_WND 512
+#define MAX_WND  512
+#define MAX_TASK 1024
 
 /**
  * A structure to record each packet's state.
@@ -45,9 +47,12 @@ struct conn_state {
     /* Total packets sent/received */
     uint64_t total_pkts; 
 
-    /* Send/Recv Task */
-    char* addr;
-    size_t len;
+    /* Send/Recv task queue */
+    struct iovec tasks[MAX_TASK];
+    /* Queue head */
+    uint64_t head;
+    /* Queue tail */
+    uint64_t tail;
 };
 
 /**

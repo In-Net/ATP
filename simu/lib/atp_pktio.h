@@ -1,5 +1,5 @@
-#ifndef _ATP_PKTIO_
-#define _ATP_PKTIO_
+#ifndef _ATP_PKTIO_H_
+#define _ATP_PKTIO_H_
 
 #include <stdint.h>
 #include <cstddef>
@@ -49,7 +49,8 @@ struct __attribute__((__packed__)) atp_hdr {
     uint8_t ack:1;
     /* ECN echo flag bit */
     uint8_t ece:1;
-    uint8_t reserved:2;
+    uint8_t syn:1;
+    uint8_t fin:1;
     /* Sequence Number */
     uint32_t seq;
 };
